@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Online Quiz</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    .option {
+        display: block;
+        margin-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        margin-right: 8px;
+        cursor: pointer;
+    }
+
+    input[type="submit"] {
+        margin-left: 20px;
+        padding: 8px 25px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #res {
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<h2>Online Quiz</h2>
+
+<form>
+
+    <h3>1) Who is the CEO of Google?</h3>
+
+    <label class="option">
+        <input type="radio" name="q1" id="a">
+        Sundar Pichai
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q1">
+        Elon Musk
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q1">
+        Bill Gates
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q1">
+        Mark Zuckerberg
+    </label>
+
+
+    <h3>2) What is the full form of HTML?</h3>
+
+    <label class="option">
+        <input type="radio" name="q2">
+        Hyper Text Markup Language
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q2" id="b">
+        HyperText Markup Language
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q2">
+        Hyper Text Makeup Language
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q2">
+        Hyper Text Markup Learner
+    </label>
+
+
+    <h3>3) What is the full form of CSS?</h3>
+
+    <label class="option">
+        <input type="radio" name="q3">
+        Cascading Single Sheet
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q3" id="c">
+        Cascading Style Sheets
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q3">
+        Cascading Style Slip
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q3">
+        Casting Style Sheet
+    </label>
+
+    <br>
+
+    <input type="submit" value="Submit" onclick="result(); return false;">
+
+</form>
+
+<br>
+
+<p id="res">Score: 0 / 3</p>
+
+
+<script>
+
+    function result() {
+
+        let score = 0;
+
+        if (document.getElementById("a").checked) {
+            score++;
+        }
+
+        if (document.getElementById("b").checked) {
+            score++;
+        }
+
+        if (document.getElementById("c").checked) {
+            score++;
+        }
+
+        document.getElementById("res").innerHTML =
+            "Score: " + score + " / 3";
+
+    }
+
+</script>
+
+
+</body> </html>

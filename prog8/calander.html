@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <title>Calendar Generator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        select,
+        button {
+            padding: 8px;
+            font-size: 15px;
+        }
+
+        input[type="number"] {
+            padding: 8px 8px;
+            width: 90px;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            font-size: 15px;
+            text-align: center;
+            background-color: lightgray;
+        }
+
+        input[type="number"]:focus {
+            border-color: #2e7d32;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+        }
+
+        input[type="number"]::placeholder {
+            color: #777;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 12px;
+            width: 40px;
+        }
+
+        th {
+            background-color: cyan;
+            color: white;
+        }
+
+        td {
+            cursor: pointer;
+        }
+
+        td.sunday,
+        td.second-saturday {
+            color: red;
+        }
+
+        td.second-saturday {
+            font-weight: bold;
+        }
+
+        td:hover:not(:empty) {
+            background-color: lightgray;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h2>Calendar Generator</h2>
+
+    <label for="year">Enter Year:</label>
+
+    <input
+        type="number"
+        id="year"
+        placeholder="YYYY">
+
+    <label for="month">Select Month:</label>
+
+    <select id="month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+
+    <button onclick="generateCalendar()">
+        Generate Calendar
+    </button>
+
+    <div id="calendar-container"></div>
+
+    <script>
+        const yearInput = document.getElementById('year');
+        const monthSelect = document.getElementById('month');
+        const container = document.getElementById('calendar-container');
+
+        
+        const today = new Date();
+
+        yearInput.value = today.getFullYear();
+        monthSelect.value = today.getMonth() + 1;
+
+        function generateCalendar() {
+
+            const year = Number(yearInput.value);
+            const month = Number(monthSelect.value);
+            
+            const daysInMonth = new Date(year, month, 0).getDate();
+
+            const firstDay = new Date(
+                year,
+                month - 1,
+                1
+            ).getDay();
+
+            const monthName = new Date(
+                year,
+                month - 1,
+                1
+            ).toLocaleString('en', {
+                month: 'long'
+            });
+
+            let html = `
+                <h3>${monthName} ${year}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let day = 1;
+
+            
+            for (
+                let i = 0;
+                i < 6 && day <= daysInMonth;
+                i++
+            ) {
+                html += '<tr>';
+
+                for (let j = 0; j < 7; j++) {
+
+            
+                    if (
+                        (i === 0 && j < firstDay) ||
+                        day > daysInMonth
+                    ) {
+                        html += '<td></td>';
+                    } else {
+
+                        const date = new Date(
+                            year,
+                            month - 1,
+                            day
+                        );
+
+                        let className = '';
+
+            
+                        if (date.getDay() === 0) {
+                            className = 'sunday';
+                        }
+
+            
+                        else if (
+                            date.getDay() === 6 &&
+                            Math.ceil(day / 7) === 2
+                        ) {
+                            className = 'second-saturday';
+                        }
+
+                        html += `
+                            <td
+                                class="${className}"
+                                data-day="${day}"
+                            >
+                                ${day}
+                            </td>
+                        `;
+
+                        day++;
+                    }
+                }
+
+                html += '</tr>';
+            }
+
+            html += `
+                    </tbody>
+                </table>
+            `;
+
+            
+            container.innerHTML = html;
+
+            
+            container
+                .querySelectorAll('td[data-day]')
+                .forEach(cell => {
+
+                    cell.addEventListener('click', function () {
+
+                        const selectedDay = Number(
+                            this.dataset.day
+                        );
+
+                        const selectedDate = new Date(
+                            year,
+                            month - 1,
+                            selectedDay
+                        );
+
+                        
+                    });
+                });
+        }
+
+
+        generateCalendar();
+    </script>
+
+</body>
+</html>
+

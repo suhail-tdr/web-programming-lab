@@ -1,0 +1,204 @@
+
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+    	*{
+    	box-sizing: border-box;
+    	}
+    	
+        body {
+            background-color: white;
+            font-family: arial, sans-serif;
+        }
+
+        .form-box {
+            width: 800px;
+            margin: 50px auto;
+            padding: 25px 40px;
+            background-color: #9daee0;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .label {
+            width: 45%;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 170px;
+            height: 18px;
+        }
+
+        textarea {
+            height: 145px;
+            resize:vertical;
+        }
+        
+        select {
+            width: 75px;
+            cursor: pointer;
+        }
+        
+
+        input[type="file"] {
+            width: 100%;
+            padding:8px;
+            border: 1px solid:
+            border-radius:5px;
+            
+        }
+
+        .buttons input {
+            margin-right: 310px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h3>Registration form</h3>
+
+        <form>
+
+            <table>
+
+                <tr>
+                    <td class="label">Full Name</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email id</td>
+                    <td>
+                        <input type="email">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Age</td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="gender"> Male
+                        <input type="radio" name="gender"> Female
+                        <input type="radio" name="gender"> Others
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Date Of Birth</td>
+                    <td>
+                        <input type="date">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <textarea></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>current Study</td>
+                    <td>
+                        <select>
+                            <option>Select</option>
+                            <option>B.Tech</option>
+                            <option>BCA</option>
+                            <option>MCA</option>
+                            <option>M.Tech</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        <select>
+                            <option>Select</option>
+                            <option>CS</option>
+                            <option>IT</option>
+                            <option>ECE</option>
+                            <option>EEE</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Uplod CV</td>
+                    <td>
+                        <input type="file">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Programming Languages</td>
+                    <td>
+                        <input type="checkbox"> HTML
+                        <input type="checkbox"> Reactjs
+                        <input type="checkbox"> CSS
+                        <input type="checkbox"> Flutter
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Language</td>
+                    <td>
+                        <input type="checkbox"> English
+                        <input type="checkbox"> Malayalam
+                        <input type="checkbox"> Arabic
+                        <input type="checkbox"> Hindi
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" value="submit">
+                    </td>
+
+                    <td>
+                        <input type="reset" value="reset">
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

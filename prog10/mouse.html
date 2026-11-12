@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Mouse Handling</title>
+<style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            color: rgb(52, 155, 38);
+        }
+
+        img {
+            width: 450px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;  
+        }
+</style>
+</head>
+<body>
+<h1>Mouse Handling</h1>
+<img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAIPpcgg1lyGJJvU-hDKZv2Ew80x7e8PKa8-kB0Z1ygg&s=10"
+        alt="Original image"
+        onmouseover="changeImage(this)"
+        onmouseout="restoreImage(this)"
+    >
+<script>
+        function changeImage(img) {
+            img.src = "https://img.magnific.com/free-vector/simple-vibing-cat-square-meme_742173-4493.jpg?semt=ais_hybrid&w=740&q=80";
+        }
+
+        function restoreImage(img) {
+            img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAIPpcgg1lyGJJvU-hDKZv2Ew80x7e8PKa8-kB0Z1ygg&s=10";
+        }
+</script>
+
+</body>
+</html>
